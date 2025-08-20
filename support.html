@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Support for Sleep Animals - iOS App">
+    <title>Sleep Animals - Support</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .emoji {
+            font-size: 1.2em;
+        }
+        
+        .subtitle {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        
+        nav {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 10px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+        
+        nav a:hover {
+            opacity: 1;
+        }
+        
+        nav a.active {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .contact-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .contact-card h2 {
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+        
+        .email-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 15px;
+        }
+        
+        .email-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .faq-section {
+            margin-top: 40px;
+        }
+        
+        .faq-section h2 {
+            color: #2d3748;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .faq-item {
+            background: #f7fafc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+        
+        .faq-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .faq-answer {
+            color: #4a5568;
+            padding-left: 30px;
+        }
+        
+        .faq-answer ol, .faq-answer ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .faq-answer li {
+            margin: 5px 0;
+        }
+        
+        .faq-answer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+        
+        .quick-tips {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+        
+        .quick-tips h3 {
+            color: #22543d;
+            margin-bottom: 10px;
+        }
+        
+        .troubleshooting {
+            background: #fff5f5;
+            border-left: 4px solid #fc8181;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+        
+        .troubleshooting h3 {
+            color: #742a2a;
+            margin-bottom: 10px;
+        }
+        
+        .troubleshooting a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .troubleshooting a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #718096;
+            background: #f7fafc;
+            font-size: 0.9em;
+        }
+        
+        footer a {
+            color: #718096;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .response-time {
+            background: #edf2f7;
+            border-radius: 20px;
+            padding: 10px 20px;
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #4a5568;
+        }
+        
+        code {
+            background: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+            color: #5a67d8;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            .content {
+                padding: 25px;
+            }
+            .faq-answer {
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>
+                <span class="emoji">🦄</span>
+                Sleep Animals
+                <span class="emoji">🐻</span>
+            </h1>
+            <p class="subtitle">Support Center</p>
+            <nav>
+                <a href="/">Privacy Policy</a>
+                <a href="/support" class="active">Support</a>
+            </nav>
+        </header>
+        
+        <div class="content">
+            <div class="contact-card">
+                <h2>📧 Need Help?</h2>
+                <p>We're here to help you get the most out of Sleep Animals!</p>
+                <a href="mailto:mail@daviddillmann.com?subject=Sleep%20Animals%20-%20Support%20Request" class="email-button">
+                    Contact Support
+                </a>
+                <div class="response-time">
+                    ⏱️ Typical response time: 24-48 hours
+                </div>
+            </div>
+            
+            <div class="quick-tips">
+                <h3>💡 Quick Tip</h3>
+                <p>Make sure you're wearing your Apple Watch to bed with Sleep Focus enabled for the best results!</p>
+            </div>
+            
+            <div class="faq-section">
+                <h2>
+                    <span>❓</span>
+                    Frequently Asked Questions
+                </h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>🛏️</span>
+                        How do I enable sleep tracking?
+                    </div>
+                    <div class="faq-answer">
+                        <ol>
+                            <li>Open the <strong>Health app</strong> on your iPhone</li>
+                            <li>Tap <strong>Browse</strong> at the bottom</li>
+                            <li>Select <strong>Sleep</strong></li>
+                            <li>Tap <strong>Set Up Sleep</strong> and follow the prompts</li>
+                            <li>Make sure <strong>Track Sleep with Apple Watch</strong> is enabled</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>🤔</span>
+                        Why don't I see any sleep data?
+                    </div>
+                    <div class="faq-answer">
+                        Common reasons and solutions:
+                        <ul>
+                            <li><strong>No Apple Watch:</strong> Sleep Animals requires an Apple Watch with sleep tracking</li>
+                            <li><strong>Sleep tracking disabled:</strong> Check Settings → Sleep → Track Sleep with Apple Watch</li>
+                            <li><strong>Watch not worn:</strong> Make sure you wear your watch to bed</li>
+                            <li><strong>Low battery:</strong> Charge your watch before bed (needs at least 30%)</li>
+                            <li><strong>First time use:</strong> It may take one night to start seeing data</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>🦄</span>
+                        What do the different animals mean?
+                    </div>
+                    <div class="faq-answer">
+                        Each animal represents your sleep quality:
+                        <ul>
+                            <li><strong>🦄 Unicorn:</strong> Perfect sleep (8-8.5 hours)</li>
+                            <li><strong>🐻 Bear:</strong> Great sleep (8.5-9.5 hours)</li>
+                            <li><strong>🐱 Cat:</strong> Good sleep (7-8 hours)</li>
+                            <li><strong>🐰 Rabbit:</strong> Early bird (6-7 hours)</li>
+                            <li><strong>🐨 Koala:</strong> Long sleeper (9.5-11 hours)</li>
+                            <li><strong>🦥 Sloth:</strong> Very long sleep (11+ hours)</li>
+                            <li><strong>🦉 Owl:</strong> Night owl (4-6 hours)</li>
+                            <li><strong>🦝 Raccoon:</strong> Very short sleep (<4 hours)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>📊</span>
+                        How is my sleep animal calculated?
+                    </div>
+                    <div class="faq-answer">
+                        Sleep Animals uses two key metrics:
+                        <ul>
+                            <li><strong>Sleep Duration:</strong> Total hours of actual sleep (not just time in bed)</li>
+                            <li><strong>Sleep Efficiency:</strong> Percentage of time actually asleep vs. time in bed</li>
+                        </ul>
+                        Your daily animal is based on last night's sleep, while your weekly animal considers your 7-day average and consistency.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>🔒</span>
+                        Is my sleep data private?
+                    </div>
+                    <div class="faq-answer">
+                        Yes, completely! Sleep Animals:
+                        <ul>
+                            <li>Never sends your data off your device</li>
+                            <li>Doesn't require an account</li>
+                            <li>Has no servers or cloud storage</li>
+                            <li>Only reads from Apple Health when you open the app</li>
+                        </ul>
+                        <a href="/">Read our full Privacy Policy</a>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>📱</span>
+                        Which devices are supported?
+                    </div>
+                    <div class="faq-answer">
+                        <ul>
+                            <li><strong>iPhone:</strong> iOS 18.5 or later</li>
+                            <li><strong>Apple Watch:</strong> Any model with sleep tracking capability</li>
+                            <li><strong>iPad:</strong> Not supported (no HealthKit sleep tracking)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="troubleshooting">
+                <h3>🔧 Troubleshooting</h3>
+                <p>If Sleep Animals isn't working properly:</p>
+                <ol>
+                    <li>Force quit the app and restart it</li>
+                    <li>Check iOS Settings → Privacy & Security → Health → Sleep Animals is enabled</li>
+                    <li>Make sure you have the latest version from the App Store</li>
+                    <li>Restart your iPhone</li>
+                </ol>
+                <p>Still having issues? <a href="mailto:mail@daviddillmann.com?subject=Sleep%20Animals%20-%20Technical%20Issue">Contact Support</a> with details!</p>
+            </div>
+            
+            <div class="contact-card" style="margin-top: 40px;">
+                <h2>💬 Still Have Questions?</h2>
+                <p>We'd love to hear from you! Whether it's feedback, feature requests, or issues:</p>
+                <a href="mailto:mail@daviddillmann.com?subject=Sleep%20Animals%20-%20General%20Inquiry" class="email-button">
+                    Contact Support
+                </a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 Sleep Animals. All rights reserved.</p>
+            <p style="margin-top: 10px;">
+                <a href="/">Privacy Policy</a> | 
+                <a href="/support">Support</a>
+            </p>
+            <p style="margin-top: 10px;">
+                Made with 💜 for better sleep
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
